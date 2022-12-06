@@ -1,40 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//MODELO DE EXEMPLO
-
 int main(){
    
-   	//VariÃ¡veis que podem ser usadas
    	unsigned int x[200];
-   	int y;
-   	int z;
-   	int k;
-   	int w;
-   	int j;
-   	int i;
+   	int y, z;
    	
-   	//#########################
-   	for(z=0;z<=200;z++){//setando valores para garantir que sao zeros
+		//setando valores para garantir que sao zeros
+   	for(z=0;z<=200;z++){
       x[z]=0;
     }
     z = y = 0;
+
 		printf("Digite -1 para encerrar\nDigite qualquer numero de 0 a 5000:\n");
-    while (y != -1){// laco onde adiciona os numeros
+		// laco onde o usuario adiciona os numeros
+    while (y != -1){
       scanf("%i",&y);
 			if(y != -1){
         x[y/32] = x[y/32] | (1<<(y%32));
 			}
     }
 		printf("Os numeros digitados em ordem crescente foram:\n");
-    for(z=0;z<=200;z++){		// laco para imprimir todos os numeros digitados
+		// laco para imprimir todos os numeros digitados em ordem crescente
+    for(z=0;z<=200;z++){
       for(y=0;y<32;y++){
         if((x[z]&(1<<y)) != 0){
           printf("\n%i",((z*32)+y));
         }
       }
     }
-   	//#########################
    
 	return 0;  
 }
